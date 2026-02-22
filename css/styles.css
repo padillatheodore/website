@@ -11047,16 +11047,16 @@ html {
 
 /* Container with scroll snap */
 .snap-container {
-    /* height: 100vh; */
+    height: 100vh;
     /* overflow-y: scroll; */
     scroll-snap-type: y mandatory;
     /* For smoother scrolling */
-    /* scroll-behavior: smooth; */
+    scroll-behavior: smooth;
 }
 
 /* Each section snaps into place */
 .section {
-    /* height: 100vh; */
+    height: 100vh;
     scroll-snap-align: start;
     /* scroll-snap-stop: always; */
     
