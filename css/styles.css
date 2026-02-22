@@ -11044,3 +11044,16 @@ html {
 .copyright {
   background-color: #1a252f;
 }
+
+/* 1. The Container (usually your <body> or a wrapper <div>) */
+.scroll-container {
+    height: 100vh;           /* Must have a defined height */
+    overflow-y: scroll;      /* Enable vertical scrolling */
+    scroll-snap-type: y mandatory; /* "y" for vertical, "mandatory" to force the snap */
+}
+
+/* 2. The Sections */
+.section {
+    height: 100vh;           /* Each section takes up the full screen */
+    scroll-snap-align: start; /* Snaps the 'start' (top) of the section to the viewport */
+}
