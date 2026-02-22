@@ -447,5 +447,82 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <!-- Portfolio Interactive Script -->
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Project data
+            const projects = {
+                'service-area': {
+                    title: 'Service Area Analysis',
+                    description: 'GIS-based service area analysis for emergency response optimization. This project uses network analysis to determine optimal coverage areas for disaster response units within Metro Manila. The analysis considers road networks, travel times, and population density to identify gaps in emergency service coverage.',
+                    tags: ['ArcGIS Pro', 'Network Analyst', 'Python'],
+                    mapImage: 'assets/img/portfolio/service-area-map.jpg'
+                },
+                'map-layout': {
+                    title: 'Automated Map Layout',
+                    description: 'Python script that automatically generates standardized map layouts for geological hazard assessments. This tool processes multiple data layers and produces publication-ready maps with consistent symbology, scale bars, legends, and title blocks.',
+                    tags: ['Python', 'ArcPy', 'Cartography'],
+                    mapImage: 'assets/img/portfolio/map-layout.jpg'
+                },
+                'coming-soon': {
+                    title: 'Coming Soon',
+                    description: 'An exciting new project is in development. Stay tuned for updates on this innovative geospatial solution that will revolutionize how we analyze and visualize geological data.',
+                    tags: ['In Development'],
+                    mapImage: null
+                }
+            };
+
+            // Get DOM elements
+            const projectItems = document.querySelectorAll('.project-item');
+            const projectTitle = document.getElementById('project-title');
+            const projectDetail = document.getElementById('project-detail');
+            const techTags = document.querySelector('.tech-tags');
+            const mapImage = document.getElementById('map-image');
+            const mapPlaceholder = document.getElementById('map-placeholder');
+
+            // Function to update project display
+            function updateProject(projectId) {
+                const project = projects[projectId];
+                
+                // Update description
+                projectTitle.textContent = project.title;
+                projectDetail.textContent = project.description;
+                
+                // Update tech tags
+                techTags.innerHTML = project.tags.map(tag => 
+                    `<span class="tech-tag">${tag}</span>`
+                ).join('');
+                
+                // Update map
+                if (project.mapImage) {
+                    mapImage.src = project.mapImage;
+                    mapImage.style.display = 'block';
+                    mapPlaceholder.style.display = 'none';
+                } else {
+                    mapImage.style.display = 'none';
+                    mapPlaceholder.style.display = 'flex';
+                }
+                
+                // Update active state
+                projectItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.dataset.project === projectId) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+
+            // Add click event listeners
+            projectItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const projectId = this.dataset.project;
+                    updateProject(projectId);
+                });
+            });
+
+            // Set default active project (Service Area)
+            updateProject('service-area');
+        });
+        </script>
     </body>
 </html>
