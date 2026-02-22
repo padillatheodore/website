@@ -11051,14 +11051,14 @@ html {
     /* overflow-y: scroll; */
     scroll-snap-type: y mandatory;
     /* For smoother scrolling */
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
 }
 
 /* Each section snaps into place */
 .section {
     height: calc(100vh - 1.75rem);
     scroll-snap-align: start;
-    /* scroll-snap-stop: always; */
+    scroll-snap-stop: always;
     
     /* Your section styling */
     /* display: flex;
