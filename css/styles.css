@@ -11051,7 +11051,7 @@ html {
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   /* For smoother scrolling */
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 /* Each section snaps into place */
@@ -11065,5 +11065,4 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center; */
-  padding: 6rem 0;
 }
