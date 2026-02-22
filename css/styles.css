@@ -641,7 +641,6 @@ progress {
   margin-right: auto;
   margin-left: auto;
   scroll-snap-type: y proximity; /* "y" for vertical, "mandatory" to force the snap */
-  scroll-snap-align: start; /* Snaps the 'start' (top) of the section to the viewport */
 }
 
 @media (min-width: 576px) {
@@ -10834,6 +10833,7 @@ html {
 
 .page-section {
   padding: 6rem 0;
+  scroll-snap-align: start;
 }
 .page-section .page-section-heading {
   font-size: 2.25rem;
