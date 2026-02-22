@@ -11047,7 +11047,7 @@ html {
 
 /* Container with scroll snap */
 .snap-container {
-    height: 100vh;
+    /* height: 100vh; */
     /* overflow-y: scroll; */
     scroll-snap-type: y mandatory;
     /* For smoother scrolling */
@@ -11056,7 +11056,7 @@ html {
 
 /* Each section snaps into place */
 .section {
-    height: calc(100vh - 1.75rem);
+    /* height: calc(100vh - 1.75rem); */
     scroll-snap-align: start;
     /* scroll-snap-stop: always; */
     
