@@ -635,14 +635,11 @@ progress {
 .container-sm {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
-  height: 100vh;
   width: 100%;
   padding-right: calc(var(--bs-gutter-x) * 0.5);
   padding-left: calc(var(--bs-gutter-x) * 0.5);
   margin-right: auto;
   margin-left: auto;
-  scroll-snap-type: y mandatory; /* "y" for vertical, "mandatory" to force the snap */
-  scroll-behavior: smooth;
 }
 
 @media (min-width: 576px) {
@@ -10834,11 +10831,7 @@ html {
 }
 
 .page-section {
-  height: 100vh;
-  width: 100%;
-  scroll-snap-align: start; /* This tells the section to 'stick' to the top */
-  position: relative;
-  display: flex;
+  padding: 6rem 0;
 }
 .page-section .page-section-heading {
   font-size: 2.25rem;
@@ -11050,4 +11043,27 @@ html {
 
 .copyright {
   background-color: #1a252f;
+}
+
+/* Container with scroll snap */
+.snap-container {
+    /* height: 100vh; */
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    /* For smoother scrolling */
+    scroll-behavior: smooth;
+}
+
+/* Each section snaps into place */
+.section {
+    /* height: 100vh; */
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    
+    /* Your section styling */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem; */
 }
