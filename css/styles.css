@@ -11049,9 +11049,10 @@ html {
 .snap-container {
     /* height: 100vh; */
     /* overflow-y: scroll; */
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
     /* For smoother scrolling */
     scroll-behavior: smooth;
+    padding: 6rem 0;
 }
 
 /* Each section snaps into place */
