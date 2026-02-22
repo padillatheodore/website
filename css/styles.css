@@ -10834,8 +10834,11 @@ html {
 }
 
 .page-section {
-  padding: 6rem 0;
-  scroll-snap-align: start;
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start; /* This tells the section to 'stick' to the top */
+  position: relative;
+  display: flex;
 }
 .page-section .page-section-heading {
   font-size: 2.25rem;
