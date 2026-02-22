@@ -11058,7 +11058,8 @@ html {
 .section {
   height: 100vh;
   scroll-snap-align: start;
-  scroll-snap-stop: always;
+  scroll-snap-stop: normal;
+  scroll-margin: 2rem;
   
   /* Your section styling */
   /* display: flex;
