@@ -635,12 +635,14 @@ progress {
 .container-sm {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
+  height: 100vh;
   width: 100%;
   padding-right: calc(var(--bs-gutter-x) * 0.5);
   padding-left: calc(var(--bs-gutter-x) * 0.5);
   margin-right: auto;
   margin-left: auto;
   scroll-snap-type: y mandatory; /* "y" for vertical, "mandatory" to force the snap */
+  scroll-behavior: smooth;
 }
 
 @media (min-width: 576px) {
@@ -11045,16 +11047,4 @@ html {
 
 .copyright {
   background-color: #1a252f;
-}
-
-/* 1. The Container (usually your <body> or a wrapper <div>) */
-.scroll-container {
-    height: 100vh;           /* Must have a defined height */
-    scroll-snap-type: y proximity; /* "y" for vertical, "mandatory" to force the snap */
-}
-
-/* 2. The Sections */
-.section {
-    height: 100vh;           /* Each section takes up the full screen */
-    scroll-snap-align: start; /* Snaps the 'start' (top) of the section to the viewport */
 }
