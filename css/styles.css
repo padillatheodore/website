@@ -11048,7 +11048,7 @@ html {
 /* Container with scroll snap */
 .snap-container {
   /* height: 100vh; */
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
   scroll-snap-type: y mandatory;
   /* For smoother scrolling */
   scroll-behavior: smooth;
