@@ -640,6 +640,8 @@ progress {
   padding-left: calc(var(--bs-gutter-x) * 0.5);
   margin-right: auto;
   margin-left: auto;
+  scroll-snap-type: y proximity; /* "y" for vertical, "mandatory" to force the snap */
+  scroll-snap-align: start; /* Snaps the 'start' (top) of the section to the viewport */
 }
 
 @media (min-width: 576px) {
