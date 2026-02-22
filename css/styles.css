@@ -11048,8 +11048,7 @@ html {
 /* 1. The Container (usually your <body> or a wrapper <div>) */
 .scroll-container {
     height: 100vh;           /* Must have a defined height */
-    overflow-y: scroll;      /* Enable vertical scrolling */
-    scroll-snap-type: y mandatory; /* "y" for vertical, "mandatory" to force the snap */
+    scroll-snap-type: y proximity; /* "y" for vertical, "mandatory" to force the snap */
 }
 
 /* 2. The Sections */
