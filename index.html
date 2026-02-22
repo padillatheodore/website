@@ -254,28 +254,32 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
         <!-- Portfolio Interactive Script -->
         <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Project data
+            // Project data with GitHub URLs
             const projects = {
                 'service-area': {
                     title: 'Service Area Analysis',
-                    description: 'GIS-based service area analysis. This project uses network analysis to determine optimal coverage areas for facilities provided by the user. The analysis considers road networks, travel times and distances to identify gaps in the coverage of facilities.',
-                    tags: ['ArcGIS Pro', 'Network Analyst', 'Python'],
-                    mapImage: 'assets/img/portfolio/submarine.png'
+                    description: 'GIS-based service area analysis. This project uses network analysis to determine optimal coverage areas for facilities provided by the user. The analysis considers road networks, travel times and distances to identify gaps in the service coverage of facilities.',
+                    tags: ['Python', 'Road Network Analysis', 'NetworkX'],
+                    mapImage: 'assets/img/portfolio/submarine.png',
+                    githubUrl: 'https://github.com/yourusername/service-area-analysis' // Replace with actual URL
                 },
                 'map-layout': {
                     title: 'Automated Map Layout',
                     description: 'Python script that automatically generates standardized map layouts. This tool processes multiple data layers and produces maps with consistent symbology, scale bars, legends, and title blocks.',
-                    tags: ['Python', 'ArcPy', 'Cartography'],
-                    mapImage: 'assets/img/portfolio/cabin.png'
+                    tags: ['Python', 'MatPlotLib', 'Cartography'],
+                    mapImage: 'assets/img/portfolio/cabin.png',
+                    githubUrl: 'https://github.com/yourusername/automated-map-layout' // Replace with actual URL
                 },
                 'coming-soon': {
                     title: 'Coming Soon',
                     description: 'An exciting new project is in development. Stay tuned for updates!',
                     tags: ['In Development'],
-                    mapImage: null
+                    mapImage: null,
+                    githubUrl: null // No GitHub link for coming soon
                 }
             };
 
@@ -286,6 +290,20 @@
             const techTags = document.querySelector('.tech-tags');
             const mapImage = document.getElementById('map-image');
             const mapPlaceholder = document.getElementById('map-placeholder');
+            
+            // Create GitHub button container if it doesn't exist
+            let githubButtonContainer = document.getElementById('github-button-container');
+            if (!githubButtonContainer) {
+                githubButtonContainer = document.createElement('div');
+                githubButtonContainer.id = 'github-button-container';
+                githubButtonContainer.className = 'github-button-container';
+                
+                // Insert after project description paragraph
+                const projectDesc = document.querySelector('.project-description');
+                if (projectDesc) {
+                    projectDesc.appendChild(githubButtonContainer);
+                }
+            }
 
             // Function to update project display
             function updateProject(projectId) {
@@ -308,6 +326,18 @@
                 } else {
                     mapImage.style.display = 'none';
                     mapPlaceholder.style.display = 'flex';
+                }
+                
+                // Update GitHub button
+                if (project.githubUrl) {
+                    githubButtonContainer.innerHTML = `
+                        <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="github-link">
+                            <i class="fab fa-github"></i>
+                            View on GitHub
+                        </a>
+                    `;
+                } else {
+                    githubButtonContainer.innerHTML = ''; // Remove button if no URL
                 }
                 
                 // Update active state

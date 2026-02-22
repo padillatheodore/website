@@ -11640,3 +11640,43 @@ body {
         max-height: 300px;
     }
 }
+
+/* GitHub button styling */
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #24292e;
+    color: white !important;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    width: fit-content;
+}
+
+.github-link:hover {
+    background: #2c974b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color: white !important;
+}
+
+.github-link i {
+    font-size: 1.2rem;
+}
+
+/* Adjust for shorter screens */
+@media (max-height: 700px) {
+    .github-link {
+        padding: 0.4rem 1rem;
+        margin-top: 1rem;
+        font-size: 0.85rem;
+    }
+}
