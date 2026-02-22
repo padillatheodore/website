@@ -11049,7 +11049,7 @@ html {
 .snap-container {
   height: 100vh;
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   /* For smoother scrolling */
   scroll-behavior: smooth;
 }
