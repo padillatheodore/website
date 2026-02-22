@@ -81,7 +81,7 @@
                         
                         <!-- Middle Column - Map Preview -->
                         <div class="map-preview" id="map-preview">
-                            <img src="assets/img/portfolio/cabin.jpg" alt="Service Area Analysis Map" class="map-image" id="map-image">
+                            <img src="assets/img/portfolio/cabin.png" alt="Service Area Analysis Map" class="map-image" id="map-image">
                             <div class="map-placeholder" id="map-placeholder" style="display: none;">
                                 <i class="fas fa-map fa-4x"></i>
                                 <p>Map preview coming soon</p>
@@ -90,7 +90,7 @@
                         
                         <!-- Right Column - Project List -->
                         <div class="project-list">
-                            <h4>My Projects</h4>
+                            <!-- <h4>My Projects</h4> -->
                             <ul class="project-items">
                                 <li class="project-item active" data-project="service-area">
                                     <i class="fas fa-project-diagram"></i>
@@ -454,19 +454,19 @@
             const projects = {
                 'service-area': {
                     title: 'Service Area Analysis',
-                    description: 'GIS-based service area analysis for emergency response optimization. This project uses network analysis to determine optimal coverage areas for disaster response units within Metro Manila. The analysis considers road networks, travel times, and population density to identify gaps in emergency service coverage.',
+                    description: 'GIS-based service area analysis. This project uses network analysis to determine optimal coverage areas for facilities provided by the user. The analysis considers road networks, travel times and distances to identify gaps in the coverage of facilities.',
                     tags: ['ArcGIS Pro', 'Network Analyst', 'Python'],
-                    mapImage: 'assets/img/portfolio/service-area-map.jpg'
+                    mapImage: 'assets/img/portfolio/submarine.png'
                 },
                 'map-layout': {
                     title: 'Automated Map Layout',
-                    description: 'Python script that automatically generates standardized map layouts for geological hazard assessments. This tool processes multiple data layers and produces publication-ready maps with consistent symbology, scale bars, legends, and title blocks.',
+                    description: 'Python script that automatically generates standardized map layouts. This tool processes multiple data layers and produces maps with consistent symbology, scale bars, legends, and title blocks.',
                     tags: ['Python', 'ArcPy', 'Cartography'],
-                    mapImage: 'assets/img/portfolio/map-layout.jpg'
+                    mapImage: 'assets/img/portfolio/cabin.png'
                 },
                 'coming-soon': {
                     title: 'Coming Soon',
-                    description: 'An exciting new project is in development. Stay tuned for updates on this innovative geospatial solution that will revolutionize how we analyze and visualize geological data.',
+                    description: 'An exciting new project is in development. Stay tuned for updates!',
                     tags: ['In Development'],
                     mapImage: null
                 }
