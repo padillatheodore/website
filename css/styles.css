@@ -11852,3 +11852,66 @@ body {
         margin: 0.5rem 0 1rem !important;
     }
 }
+/* Force masthead to take full height and center content properly */
+#masthead {
+    height: calc(100vh - 80px) !important;
+    min-height: calc(100vh - 80px) !important;
+    max-height: calc(100vh - 80px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #1abc9c !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.masthead {
+    height: 100% !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #1abc9c !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.masthead .container {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+}
+
+/* Ensure avatar is visible and properly sized */
+.masthead-avatar {
+    width: 12rem !important;
+    height: auto !important;
+    margin-bottom: 1rem !important;
+    display: block !important;
+}
+
+/* Force all sections to same height */
+.section {
+    height: calc(100vh - 80px) !important;
+    min-height: calc(100vh - 80px) !important;
+    max-height: calc(100vh - 80px) !important;
+}
+
+/* Mobile fix */
+@media (max-width: 991.98px) {
+    #masthead,
+    .masthead,
+    .section {
+        height: calc(100vh - 70px) !important;
+        min-height: calc(100vh - 70px) !important;
+        max-height: calc(100vh - 70px) !important;
+    }
+    
+    .masthead-avatar {
+        width: 8rem !important;
+    }
+}
