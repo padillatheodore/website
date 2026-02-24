@@ -11926,3 +11926,86 @@ body {
         max-height: 100vh !important;
     }
 }
+
+/* Force all sections to full viewport height with padding for navbar */
+.section,
+#masthead,
+#about,
+#contact,
+.portfolio {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+    position: relative;
+}
+
+/* Add padding-top to all section containers to account for fixed navbar */
+.section .container,
+#masthead .container,
+#about .container,
+#contact .container,
+.portfolio .container {
+    padding-top: 80px !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Masthead specific */
+#masthead {
+    background-color: #1abc9c !important;
+}
+
+.masthead {
+    height: 100% !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #1abc9c !important;
+    margin: 0 !important;
+}
+
+.masthead .container {
+    padding-top: 80px !important;
+}
+
+/* Ensure avatar is visible */
+.masthead-avatar {
+    width: 12rem !important;
+    height: auto !important;
+    margin-bottom: 1rem !important;
+    display: block !important;
+}
+
+/* Snap container */
+.snap-container {
+    height: 100vh;
+    margin-top: 0 !important;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    padding: 0 !important;
+}
+
+/* Mobile fix */
+@media (max-width: 991.98px) {
+    .section .container,
+    #masthead .container,
+    #about .container,
+    #contact .container,
+    .portfolio .container {
+        padding-top: 70px !important;
+    }
+    
+    .masthead-avatar {
+        width: 8rem !important;
+    }
+}
