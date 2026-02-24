@@ -11680,3 +11680,175 @@ body {
         font-size: 0.85rem;
     }
 }
+
+/* Fix section heights - ensure all sections are exactly the same height */
+.section {
+    height: calc(100vh - 80px) !important;
+    min-height: calc(100vh - 80px) !important;
+    max-height: calc(100vh - 80px) !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Remove duplicate heading from portfolio section */
+.portfolio .page-section-heading {
+    display: none !important;
+}
+
+.portfolio .divider-custom {
+    display: none !important;
+}
+
+/* Adjust portfolio container to remove space from hidden heading */
+.portfolio .container {
+    height: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 2rem !important;
+    overflow: hidden !important;
+}
+
+/* Make portfolio content take full height */
+.portfolio-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 0.8fr;
+    gap: 1.5rem;
+    height: 100%;
+    max-height: 100%;
+    min-height: 0;
+    padding: 0;
+    overflow: hidden !important;
+}
+
+/* Masthead fix - ensure it takes full height */
+#masthead {
+    height: calc(100vh - 80px) !important;
+    min-height: calc(100vh - 80px) !important;
+    max-height: calc(100vh - 80px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #1abc9c !important; /* Match masthead background */
+}
+
+.masthead {
+    height: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #1abc9c !important;
+}
+
+.masthead .container {
+    height: 100%;
+    max-height: 100%;
+    padding: 2rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+/* Ensure masthead avatar fits properly */
+.masthead-avatar {
+    width: 12rem !important;
+    margin-bottom: 1rem !important;
+    max-height: 40vh;
+}
+
+/* Fix about section */
+#about {
+    height: calc(100vh - 80px) !important;
+    min-height: calc(100vh - 80px) !important;
+    max-height: calc(100vh - 80px) !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+}
+
+#about .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem !important;
+}
+
+/* Fix contact section */
+#contact {
+    height: calc(100vh - 80px) !important;
+    min-height: calc(100vh - 80px) !important;
+    max-height: calc(100vh - 80px) !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+}
+
+#contact .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem !important;
+}
+
+/* Fix footer and copyright */
+.footer, .copyright {
+    scroll-snap-align: start !important;
+    height: auto !important;
+    min-height: auto !important;
+    padding: 2rem 0 !important;
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .section,
+    #masthead,
+    #about,
+    #contact,
+    .portfolio {
+        height: calc(100vh - 70px) !important;
+        min-height: calc(100vh - 70px) !important;
+        max-height: calc(100vh - 70px) !important;
+    }
+    
+    .masthead-avatar {
+        width: 8rem !important;
+    }
+    
+    .masthead-heading {
+        font-size: 2rem !important;
+    }
+    
+    .masthead-subheading {
+        font-size: 1rem !important;
+    }
+}
+
+@media (max-height: 700px) {
+    .masthead-avatar {
+        width: 6rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .divider-custom {
+        margin: 0.5rem 0 1rem !important;
+    }
+}
