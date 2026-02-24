@@ -11864,7 +11864,7 @@ body {
     scroll-snap-align: start !important;
     scroll-snap-stop: always !important;
     overflow: hidden !important;
-    padding: 0 !important;
+    padding-top: 80px !important;
     margin: 0 !important;
     width: 100%;
     position: relative;
