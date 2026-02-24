@@ -11697,11 +11697,6 @@ body {
     align-items: center;
 }
 
-/* Remove duplicate heading from portfolio section */
-.portfolio .page-section-heading {
-    display: none !important;
-}
-
 .portfolio .divider-custom {
     display: none !important;
 }
