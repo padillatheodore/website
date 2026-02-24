@@ -12010,16 +12010,46 @@ body {
     }
 }
 
-/* Project list heading - only appears on the right */
+/* Project list heading - matching other section headings */
 .project-list-heading {
     color: white !important;
-    font-size: 1.5rem !important;
-    margin-bottom: 1.5rem !important;
+    font-size: 2.25rem !important;
+    line-height: 2rem !important;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
     text-align: center !important;
-    font-weight: 600 !important;
-    letter-spacing: 1px !important;
-    border-bottom: 2px solid #ffd700 !important;
-    padding-bottom: 0.8rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* Add divider under heading */
+.project-list .divider-custom {
+    display: flex !important;
+    margin: 1rem 0 1.5rem !important;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-list .divider-custom .divider-custom-line {
+    width: 100%;
+    max-width: 7rem;
+    height: 0.25rem;
+    background-color: #ffd700 !important; /* Gold to match icons */
+    border-radius: 1rem;
+}
+
+.project-list .divider-custom .divider-custom-line:first-child {
+    margin-right: 1rem;
+}
+
+.project-list .divider-custom .divider-custom-line:last-child {
+    margin-left: 1rem;
+}
+
+.project-list .divider-custom .divider-custom-icon {
+    color: #ffd700 !important; /* Gold to match icons */
+    font-size: 2rem;
 }
 
 /* Project list styling */
@@ -12078,4 +12108,12 @@ body {
 
 .project-item.active i {
     color: white !important;
+}
+
+/* Responsive adjustment */
+@media (min-width: 992px) {
+    .project-list-heading {
+        font-size: 3rem !important;
+        line-height: 2.5rem !important;
+    }
 }
