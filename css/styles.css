@@ -11057,7 +11057,7 @@ body {
 /* Snap container - this is the ONLY thing that scrolls */
 .snap-container {
     height: 100vh;
-    margin-top: 80px; /* Match navbar height */
+    margin-top: 0; /* Match navbar height */
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
@@ -11244,7 +11244,7 @@ body {
 /* Responsive adjustments */
 @media (max-width: 991.98px) {
     .snap-container {
-        margin-top: 70px;
+        margin-top: 0;
     }
     
     .section {
@@ -11341,8 +11341,8 @@ body {
     display: grid;
     grid-template-columns: 1fr 1.2fr 0.8fr;
     gap: 1.5rem;
-    height: calc(100% - 100px); /* Account for heading and divider */
-    max-height: calc(100% - 100px);
+    height: 100%; /* Account for heading and divider */
+    max-height: 100%;
     min-height: 0; /* Critical for flexbox children to shrink */
     padding: 0;
     overflow: hidden !important;
