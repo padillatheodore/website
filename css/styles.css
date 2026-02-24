@@ -11852,11 +11852,29 @@ body {
         margin: 0.5rem 0 1rem !important;
     }
 }
-/* Force masthead to take full height and center content properly */
+/* Force all sections to full viewport height - NO SUBTRACTION */
+.section,
+#masthead,
+#about,
+#contact,
+.portfolio {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+    position: relative;
+}
+
+/* Masthead specific - ensure it fills the viewport */
 #masthead {
-    height: calc(100vh - 80px) !important;
-    min-height: calc(100vh - 80px) !important;
-    max-height: calc(100vh - 80px) !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -11886,32 +11904,25 @@ body {
     margin: 0 auto !important;
 }
 
-/* Ensure avatar is visible and properly sized */
-.masthead-avatar {
-    width: 12rem !important;
-    height: auto !important;
-    margin-bottom: 1rem !important;
-    display: block !important;
-}
-
-/* Force all sections to same height */
-.section {
-    height: calc(100vh - 80px) !important;
-    min-height: calc(100vh - 80px) !important;
-    max-height: calc(100vh - 80px) !important;
+/* Remove any margin-top from snap container */
+.snap-container {
+    height: 100vh;
+    margin-top: 0 !important;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    padding: 0 !important;
 }
 
 /* Mobile fix */
 @media (max-width: 991.98px) {
+    .section,
     #masthead,
-    .masthead,
-    .section {
-        height: calc(100vh - 70px) !important;
-        min-height: calc(100vh - 70px) !important;
-        max-height: calc(100vh - 70px) !important;
-    }
-    
-    .masthead-avatar {
-        width: 8rem !important;
+    #about,
+    #contact,
+    .portfolio {
+        height: 100vh !important;
+        min-height: 100vh !important;
+        max-height: 100vh !important;
     }
 }
