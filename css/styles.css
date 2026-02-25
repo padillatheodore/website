@@ -11134,7 +11134,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1rem 2rem !important;
+    padding-top: 2rem !important;
     overflow: hidden !important;
 }
 
@@ -11445,6 +11445,7 @@ body {
 .project-list h4 {
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
+    text-align: center;
 }
 
 .project-item {
@@ -11708,7 +11709,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1rem 2rem !important;
+    padding-top: 2rem !important;
     overflow: hidden !important;
 }
 
@@ -11946,7 +11947,7 @@ body {
 #about .container,
 #contact .container,
 .portfolio .container {
-    padding-top: 80px !important;
+    padding-top: 2rem !important;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -11997,7 +11998,7 @@ body {
     #about .container,
     #contact .container,
     .portfolio .container {
-        padding-top: 70px !important;
+        padding-top: 2rem !important;
     }
     
     .masthead-avatar {
