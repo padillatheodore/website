@@ -62,7 +62,7 @@
                         <!-- Left Column - Project Description -->
                         <div class="project-description" id="project-description">
                             <h3 id="project-title">Service Area Analysis</h3>
-                            <p id="project-detail">GIS-based service area analysis for emergency response optimization. This project uses network analysis to determine optimal coverage areas for disaster response units within Metro Manila.</p>
+                            <p id="project-detail">Python-based service area network analysis. The analysis considers road networks, travel times and distances to identify gaps in the service coverage of facilities. Roads and health facilities data were obtained from OpenStreetMap.</p>
                             <div class="tech-tags">
                                 <span class="tech-tag">ArcGIS Pro</span>
                                 <span class="tech-tag">Network Analyst</span>
@@ -81,7 +81,7 @@
                         
                         <!-- Right Column - Project List -->
                         <div class="project-list">
-                            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">My Projects</h2>
+                            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Projects</h2>
                             <!-- Icon Divider-->
                             <div class="divider-custom">
                                 <div class="divider-custom-line"></div>
@@ -93,10 +93,10 @@
                                     <i class="fas fa-project-diagram"></i>
                                     <span>Service Area Analysis</span>
                                 </li>
-                                <li class="project-item" data-project="map-layout">
+                                <!-- <li class="project-item" data-project="map-layout">
                                     <i class="fas fa-draw-polygon"></i>
                                     <span>Automated Map Layout</span>
-                                </li>
+                                </li> -->
                                 <li class="project-item" data-project="coming-soon">
                                     <i class="fas fa-clock"></i>
                                     <span>Coming Soon...</span>
@@ -110,7 +110,7 @@
             <section class="section bg-primary text-white mb-0" id="about">
                 <div class="container">
                     <!-- About Section Heading-->
-                    <h2 class="page-section-heading text-center text-uppercase text-white">About Me</h2>
+                    <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
                     <!-- Icon Divider-->
                     <div class="divider-custom divider-light">
                         <div class="divider-custom-line"></div>
@@ -239,7 +239,7 @@
             </footer>
             <!-- Copyright Section-->
             <div class="copyright py-4 text-center text-white">
-                <div class="container"><small>Copyright &copy; Ted Padilla 2026</small></div>
+                <div class="container"><small> &copy; 2026 Theodore Padilla</small></div>
             </div>
         </div>
         <!-- Bootstrap core JS-->
@@ -259,18 +259,18 @@
             const projects = {
                 'service-area': {
                     title: 'Service Area Analysis',
-                    description: 'Python-based service area network analysis. The analysis considers road networks, travel times and distances to identify gaps in the service coverage of facilities.',
+                    description: 'Python-based service area network analysis. The analysis considers road networks, travel times and distances to identify gaps in the service coverage of facilities. Roads and health facilities data were obtained from OpenStreetMap.',
                     tags: ['Python', 'Road Network Analysis', 'NetworkX'],
                     mapImage: 'assets/img/portfolio/osm_service_areas.png',
                     githubUrl: 'https://github.com/padillatheodore/service-area-analysis' // Replace with actual URL
                 },
-                'map-layout': {
-                    title: 'Automated Map Layout',
-                    description: 'Python script that automatically generates standardized map layouts. This tool processes multiple data layers and produces maps with consistent symbology, scale bars, legends, and title blocks.',
-                    tags: ['Python', 'MatPlotLib', 'Cartography'],
-                    mapImage: 'assets/img/portfolio/cabin.png',
-                    githubUrl: 'https://github.com/yourusername/automated-map-layout' // Replace with actual URL
-                },
+                // 'map-layout': {
+                //     title: 'Automated Map Layout',
+                //     description: 'Python script that automatically generates standardized map layouts. This tool processes multiple data layers and produces maps with consistent symbology, scale bars, legends, and title blocks.',
+                //     tags: ['Python', 'MatPlotLib', 'Cartography'],
+                //     mapImage: 'assets/img/portfolio/cabin.png',
+                //     githubUrl: 'https://github.com/yourusername/automated-map-layout' // Replace with actual URL
+                // },
                 'coming-soon': {
                     title: 'Coming Soon',
                     description: 'An exciting new project is in development. Stay tuned for updates!',
