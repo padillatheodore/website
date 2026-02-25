@@ -11442,7 +11442,7 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.project-list h4 {
+.project-list h2 {
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     text-align: center;
@@ -11860,7 +11860,7 @@ body {
     scroll-snap-align: start !important;
     scroll-snap-stop: always !important;
     overflow: hidden !important;
-    padding-top: 80px !important;
+    padding-top: 2rem !important;
     margin: 0 !important;
     width: 100%;
     position: relative;
@@ -12007,5 +12007,5 @@ body {
 }
 
 .section .portfolio {
-  padding-top: 1rem;
+  padding-top: 2rem;
 }
