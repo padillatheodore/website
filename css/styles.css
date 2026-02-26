@@ -11710,7 +11710,7 @@ body {
 /* Make portfolio content take full height */
 .portfolio-content {
     display: grid;
-    grid-template-columns: 1fr 1.2fr 0.8fr;
+    grid-template-columns: 0.8fr 1.2fr 1fr;
     gap: 1.5rem;
     height: 100%;
     max-height: 100%;
