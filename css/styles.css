@@ -11045,15 +11045,956 @@ html {
   background-color: #1a252f;
 }
 
-/* 1. The Container (usually your <body> or a wrapper <div>) */
-.scroll-container {
-    height: 100vh;           /* Must have a defined height */
-    overflow-y: scroll;      /* Enable vertical scrolling */
-    scroll-snap-type: y mandatory; /* "y" for vertical, "mandatory" to force the snap */
+/* ===== SNAP SCROLLING FIXES - NO INTERNAL SCROLLING ===== */
+/* Add these styles at the end of your styles.css file */
+
+/* Fix body to prevent double scrolling */
+body {
+    overflow: hidden;
+    height: 100vh;
 }
 
-/* 2. The Sections */
+/* Snap container - this is the ONLY thing that scrolls */
+.snap-container {
+    height: 100vh;
+    margin-top: 0; /* Match navbar height */
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    padding: 0 !important;
+}
+
+/* Sections - NO internal scrolling, just snap */
 .section {
-    height: 100vh;           /* Each section takes up the full screen */
-    scroll-snap-align: start; /* Snaps the 'start' (top) of the section to the viewport */
+    height: calc(100vh - 80px) !important; /* Exact viewport minus navbar */
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    overflow: hidden !important; /* CRITICAL: Prevents internal scrolling */
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center; /* Vertically center content */
+}
+
+/* All content containers - make them fit exactly */
+.section .container {
+    height: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 2rem !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    overflow: visible; /* Ensure no scrolling */
+}
+
+/* Masthead specific - ensure it fits perfectly */
+.masthead {
+    height: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.masthead .container {
+    height: 100%;
+    max-height: 100%;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+/* Adjust avatar size to ensure it fits */
+.masthead-avatar {
+    width: 12rem !important;
+    margin-bottom: 1rem !important;
+}
+
+/* Fix portfolio section height and scrolling */
+.portfolio {
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 80 px !important;
+    overflow: hidden !important;
+}
+
+.portfolio .container {
+    height: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 2rem !important;
+    overflow: hidden !important;
+}
+
+/* Make portfolio grid more compact to fit without scrolling */
+.portfolio .row {
+    margin: 0 !important;
+    flex-grow: 0; /* Don't grow beyond content */
+}
+
+.portfolio .mb-5 {
+    margin-bottom: 1rem !important; /* Reduce spacing between items */
+}
+
+.portfolio-item {
+    max-width: 20rem !important; /* Slightly smaller to ensure fit */
+    margin: 0 auto !important;
+}
+
+/* About section */
+#about {
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+}
+
+#about .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem !important;
+}
+
+/* About text - ensure it's not too tall */
+#about .lead {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    max-height: 60vh;
+    overflow-y: visible; /* No scrolling */
+}
+
+/* Contact section */
+#contact {
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+}
+
+#contact .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem !important;
+}
+
+/* Make form more compact */
+#contactForm {
+    max-height: 70vh;
+    overflow-y: visible; /* No scrolling */
+}
+
+.form-floating {
+    margin-bottom: 0.75rem !important;
+}
+
+.form-floating input.form-control,
+.form-floating textarea.form-control {
+    font-size: 1.2rem !important;
+    padding: 0.5rem 0 !important;
+    height: auto !important;
+    min-height: 3rem;
+}
+
+.form-floating label {
+    font-size: 1.2rem !important;
+    padding: 0.5rem 0 !important;
+}
+
+/* Footer and copyright inside snap container */
+.footer, .copyright {
+    scroll-snap-align: start !important;
+    height: auto !important;
+    min-height: auto !important;
+    padding: 2rem 0 !important; /* Reduced padding */
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+.footer .container, 
+.copyright .container {
+    height: auto;
+    justify-content: center;
+}
+
+/* Fix page-section class conflicts */
+.page-section {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .snap-container {
+        margin-top: 0;
+    }
+    
+    .section {
+        height: calc(100vh - 70px) !important;
+    }
+    
+    .masthead-avatar {
+        width: 8rem !important;
+    }
+    
+    .masthead-heading {
+        font-size: 2rem !important;
+    }
+    
+    .masthead-subheading {
+        font-size: 1rem !important;
+    }
+    
+    /* Make portfolio items smaller on mobile */
+    .portfolio-item {
+        max-width: 15rem !important;
+    }
+    
+    /* Reduce padding on mobile */
+    .section .container {
+        padding: 1rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio .col-md-6 {
+        margin-bottom: 0.5rem !important;
+    }
+    
+    #about .lead {
+        font-size: 1rem;
+    }
+    
+    .btn-xl {
+        padding: 0.75rem 1.25rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-height: 700px) {
+    /* For short screens, make everything more compact */
+    .masthead-avatar {
+        width: 6rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .divider-custom {
+        margin: 0.5rem 0 1rem !important;
+    }
+    
+    .portfolio .row {
+        margin-top: 0 !important;
+    }
+    
+    .portfolio-item {
+        max-width: 12rem !important;
+    }
+    
+    #about .lead {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer, .copyright {
+        padding: 1rem 0 !important;
+    }
+}
+
+/* Hide scrollbar for cleaner look (optional) */
+.snap-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.snap-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.snap-container::-webkit-scrollbar-thumb {
+    background: #1abc9c;
+    border-radius: 4px;
+}
+
+.snap-container::-webkit-scrollbar-thumb:hover {
+    background: #15967d;
+}
+
+/* Make portfolio content fit within available space */
+.portfolio-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 0.8fr;
+    gap: 1.5rem;
+    height: 100%; /* Account for heading and divider */
+    max-height: 100%;
+    min-height: 0; /* Critical for flexbox children to shrink */
+    padding: 0;
+    overflow: hidden !important;
+}
+
+/* Ensure all columns can scroll internally if needed */
+.project-description {
+    overflow-y: auto !important;
+    padding: 1.5rem;
+    height: 100%;
+    max-height: 100%;
+}
+
+.project-description h3 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    border-bottom: 3px solid #1abc9c;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.project-description p {
+    color: #34495e;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.tech-tag {
+    background: #1abc9c;
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s;
+}
+
+.tech-tag:hover {
+    transform: translateY(-2px);
+    background: #15967d;
+}
+
+/* Middle Column - Map Preview */
+.map-preview {
+    height: 100%;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.map-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #7f8c8d;
+    text-align: center;
+    padding: 2rem;
+}
+
+.map-placeholder i {
+    margin-bottom: 1rem;
+    color: #bdc3c7;
+}
+
+/* Right Column - Project List */
+.project-list {
+    height: 100%;
+    max-height: 100%;;
+    padding: 1.5rem;
+}
+
+/* Make project items more compact */
+.project-item {
+    padding: 0.7rem 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-list h2 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.8rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.project-item i {
+    font-size: 1.2rem;
+    width: 24px;
+    color: #ffd700;
+}
+
+.project-item span {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.project-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-5px);
+}
+
+.project-item.active {
+    background: #1abc9c;
+    border-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.project-item.active i {
+    color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .portfolio-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 1.5rem;
+        height: auto;
+        overflow-y: auto;
+    }
+    
+    .project-description {
+        order: 2;
+    }
+    
+    .map-preview {
+        order: 1;
+        min-height: 250px;
+    }
+    
+    .project-list {
+        order: 3;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-description h3 {
+        font-size: 1.5rem;
+    }
+    
+    .project-description p {
+        font-size: 1rem;
+    }
+}
+
+/* Footer and copyright fixes */
+.footer {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 2rem 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    scroll-snap-align: start !important;
+}
+
+.footer .container {
+    height: auto;
+    padding: 0 2rem !important;
+}
+
+.footer .row {
+    margin: 0 !important;
+    align-items: center;
+}
+
+.footer .col-lg-4 {
+    padding: 0.5rem !important;
+}
+
+/* Copyright section */
+.copyright {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 1rem 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    scroll-snap-align: start !important;
+    background-color: #1a252f;
+}
+
+.copyright .container {
+    height: auto;
+    padding: 0 2rem !important;
+}
+
+.copyright .container small {
+    display: block;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-height: 700px) {
+    .portfolio-content {
+        gap: 1rem;
+    }
+    
+    .project-description {
+        padding: 1rem;
+    }
+    
+    .project-description h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .project-description p {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .tech-tag {
+        padding: 0.2rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .project-list {
+        padding: 1rem;
+    }
+    
+    .project-list h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .project-item {
+        padding: 0.5rem 0.8rem;
+    }
+    
+    .footer {
+        padding: 1rem 0 !important;
+    }
+    
+    .footer h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem !important;
+    }
+    
+    .footer p.lead {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.3rem !important;
+    }
+    
+    .btn-social {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .portfolio-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        height: auto;
+        max-height: none;
+        overflow-y: auto !important;
+    }
+    
+    .project-description,
+    .map-preview,
+    .project-list {
+        max-height: 300px;
+    }
+}
+
+/* GitHub button styling */
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #24292e;
+    color: white !important;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    width: fit-content;
+}
+
+.github-link:hover {
+    background: #2c974b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color: white !important;
+}
+
+.github-link i {
+    font-size: 1.2rem;
+}
+
+/* Adjust for shorter screens */
+@media (max-height: 700px) {
+    .github-link {
+        padding: 0.4rem 1rem;
+        margin-top: 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Fix section heights - ensure all sections are exactly the same height */
+.section {
+    height: calc(100vh - 80px) !important;
+    min-height: calc(100vh - 80px) !important;
+    max-height: calc(100vh - 80px) !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+    position: relative;
+    align-items: center;
+}
+
+
+
+/* Adjust portfolio container to remove space from hidden heading */
+.portfolio .container {
+    height: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 2rem !important;
+    overflow: hidden !important;
+}
+
+/* Make portfolio content take full height */
+.portfolio-content {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr 1fr;
+    gap: 1.5rem;
+    height: 100%;
+    max-height: 100%;
+    min-height: 0;
+    padding: 0;
+    overflow: hidden !important;
+}
+
+/* Masthead fix - ensure it takes full height */
+#masthead {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #1abc9c !important; /* Match masthead background */
+}
+
+.masthead {
+    height: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #1abc9c !important;
+}
+
+.masthead .container {
+    height: 100%;
+    max-height: 100%;
+    padding: 2rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+/* Ensure masthead avatar fits properly */
+.masthead-avatar {
+    width: 12rem !important;
+    margin-bottom: 1rem !important;
+    max-height: 40vh;
+}
+
+/* Fix about section */
+#about {
+    height: calc(100vh - 80px) !important;
+    min-height: calc(100vh - 80px) !important;
+    max-height: calc(100vh - 80px) !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+}
+
+#about .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem !important;
+}
+
+/* Fix contact section */
+#contact {
+    height: calc(100vh - 80px) !important;
+    min-height: calc(100vh - 80px) !important;
+    max-height: calc(100vh - 80px) !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+}
+
+#contact .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem !important;
+}
+
+/* Fix footer and copyright */
+.footer, .copyright {
+    scroll-snap-align: start !important;
+    height: auto !important;
+    min-height: auto !important;
+    padding: 2rem 0 !important;
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .section,
+    #masthead,
+    #about,
+    #contact,
+    .portfolio {
+        height: calc(100vh - 70px) !important;
+        min-height: calc(100vh - 70px) !important;
+        max-height: calc(100vh - 70px) !important;
+    }
+    
+    .masthead-avatar {
+        width: 8rem !important;
+    }
+    
+    .masthead-heading {
+        font-size: 2rem !important;
+    }
+    
+    .masthead-subheading {
+        font-size: 1rem !important;
+    }
+}
+
+@media (max-height: 700px) {
+    .masthead-avatar {
+        width: 6rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .divider-custom {
+        margin: 0.5rem 0 1rem !important;
+    }
+}
+/* Force all sections to full viewport height - NO SUBTRACTION */
+.section,
+#masthead,
+#about,
+#contact,
+.portfolio {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    overflow: hidden !important;
+    padding-top: 2rem !important;
+    margin: 0 !important;
+    width: 100%;
+    position: relative;
+}
+
+/* Masthead specific - ensure it fills the viewport */
+#masthead {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #1abc9c !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.masthead {
+    height: 100% !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #1abc9c !important;
+    padding-top: 80px !important;
+    margin: 0 !important;
+}
+
+.masthead .container {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+}
+
+/* Remove any margin-top from snap container */
+.snap-container {
+    height: 100vh;
+    margin-top: 0 !important;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    padding: 0 !important;
+}
+
+/* Mobile fix */
+@media (max-width: 991.98px) {
+    .section,
+    #masthead,
+    #about,
+    #contact,
+    .portfolio {
+        height: 100vh !important;
+        min-height: 100vh !important;
+        max-height: 100vh !important;
+    }
+}
+
+/* Force all sections to full viewport height with padding for navbar */
+.section,
+#masthead,
+#about,
+#contact,
+.portfolio {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+    position: relative;
+}
+
+/* Add padding-top to all section containers to account for fixed navbar */
+.section .container,
+#about .container,
+#contact .container,
+.portfolio .container {
+    padding-top: 7rem !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Masthead specific */
+#masthead {
+    background-color: #1abc9c !important;
+}
+
+.masthead {
+    height: 100% !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #1abc9c !important;
+    margin: 0 !important;
+}
+
+.masthead .container {
+    padding-top: 2rem !important;
+}
+
+/* Ensure avatar is visible */
+.masthead-avatar {
+    width: 12rem !important;
+    height: auto !important;
+    margin-bottom: 1rem !important;
+    display: block !important;
+}
+
+/* Snap container */
+.snap-container {
+    height: 100vh;
+    margin-top: 0 !important;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    padding: 0 !important;
+}
+
+/* Mobile fix */
+@media (max-width: 991.98px) {
+    .section .container,
+    #masthead .container,
+    #about .container,
+    #contact .container,
+    .portfolio .container {
+        padding-top: 2rem !important;
+    }
+    
+    .masthead-avatar {
+        width: 8rem !important;
+    }
 }
