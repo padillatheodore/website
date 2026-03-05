@@ -29,7 +29,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Projects</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
-                        <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li> -->
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -73,10 +73,10 @@
                                     <i class="fas fa-project-diagram"></i>
                                     <span>Service Area Analysis</span>
                                 </li>
-                                <!-- <li class="project-item" data-project="map-layout">
-                                    <i class="fas fa-draw-polygon"></i>
-                                    <span>Automated Map Layout</span>
-                                </li> -->
+                                <li class="project-item" data-project="pop-service">
+                                    <i class="fas fa-users"></i>
+                                    <span>Dasymetric Population Service Analysis</span>
+                                </li>
                                 <li class="project-item" data-project="coming-soon">
                                     <i class="fas fa-clock"></i>
                                     <span>Coming Soon...</span>
@@ -133,38 +133,50 @@
                 </div>
             </section>
             <!-- Contact Section-->
-            <!-- <section class="section" id="contact">
+            <section class="section" id="contact">
                 <div class="container">
+                    <!-- Contact Section Heading-->
                     <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
+                    <!-- Icon Divider-->
                     <div class="divider-custom">
                         <div class="divider-custom-line"></div>
                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                         <div class="divider-custom-line"></div>
                     </div>
+                    <!-- Contact Section Form-->
                     <div class="row justify-content-center">
                         <div class="col-lg-8 col-xl-7">
-                            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <!-- Contact Form -->
+                            <form id="contactForm">
+                                <!-- Name input-->
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                    <input class="form-control" name="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
                                     <label for="name">Full name</label>
                                     <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                                 </div>
+                                <!-- Email address input-->
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                    <input class="form-control" name="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
                                     <label for="email">Email address</label>
                                     <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                     <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                                 </div>
+                                <!-- Subject input-->
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                    <label for="phone">Phone number</label>
-                                    <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                    <input class="form-control" name="subject" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                                    <label for="subject">Subject</label>
+                                    <div class="invalid-feedback" data-sb-feedback="subject:required">A subject is required.</div>
                                 </div>
+                                <!-- Message input-->
                                 <div class="form-floating mb-3">
-                                    <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                    <textarea class="form-control" name="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
                                     <label for="message">Message</label>
                                     <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                                 </div>
+                                <!-- Submit success message-->
+                                <!---->
+                                <!-- This is what your users will see when the form-->
+                                <!-- has successfully submitted-->
                                 <div class="d-none" id="submitSuccessMessage">
                                     <div class="text-center mb-3">
                                         <div class="fw-bolder">Form submission successful!</div>
@@ -173,13 +185,18 @@
                                         <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                                     </div>
                                 </div>
+                                <!-- Submit error message-->
+                                <!---->
+                                <!-- This is what your users will see when there is-->
+                                <!-- an error submitting the form-->
                                 <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                                <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button>
+                                <!-- Submit Button-->
+                                <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Send</button>
                             </form>
                         </div>
                     </div>
                 </div>
-            </section> -->
+            </section>
             <!-- Footer-->
             <footer class="footer text-center">
                 <div class="container">
@@ -221,11 +238,31 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
+        <!-- Google Apps Script JS-->
+        <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycby8tGcKUnkNvdvxnLs9ZytXZ47Khy6E662UrXnKHUVwn0HASH4BeLeO69-tlqqEDF3-/exec';
+        const form = document.forms['contactForm'];
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const submitButton = document.getElementById('submitButton');
+            submitButton.disabled = true;
+            submitButton.innerHTML = "Sending...";
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                alert("Success! Your message has been sent to Ted.");
+                form.reset();
+                submitButton.disabled = false;
+                submitButton.innerHTML = "Send";
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert("Something went wrong. Please try again.");
+                submitButton.disabled = false;
+            });
+        });
+        </script>
 
         <!-- Portfolio Interactive Script -->
         <script>
@@ -234,18 +271,18 @@
             const projects = {
                 'service-area': {
                     title: 'Service Area Analysis',
-                    description: 'Python-based service area network analysis. The analysis considers road networks, travel times and distances to identify gaps in the service coverage of facilities. Roads and health facilities data were obtained from OpenStreetMap.',
-                    tags: ['Python', 'Road Network Analysis', 'NetworkX'],
+                    description: 'This Python script is a Service Area Analysis tool designed to model accessibility and reachability from specific facilities across a road network. It builds a functional graph of the road network using NetworkX, calculating travel costs (time or distance) while accounting for the actual geometry of the streets. Roads and health facilities data were obtained from OpenStreetMap (OSM) and walking speed (1.419 m/s) was derived from Yosritzal, et al. (2018).',
+                    tags: ['Python', 'Road Network Analysis', 'NetworkX', 'GeoPandas', 'Shapely'],
                     mapImage: 'assets/img/portfolio/osm_service_areas.png',
                     githubUrl: 'https://github.com/padillatheodore/service-area-analysis' // Replace with actual URL
                 },
-                // 'map-layout': {
-                //     title: 'Automated Map Layout',
-                //     description: 'Python script that automatically generates standardized map layouts. This tool processes multiple data layers and produces maps with consistent symbology, scale bars, legends, and title blocks.',
-                //     tags: ['Python', 'MatPlotLib', 'Cartography'],
-                //     mapImage: 'assets/img/portfolio/cabin.png',
-                //     githubUrl: 'https://github.com/yourusername/automated-map-layout' // Replace with actual URL
-                // },
+                'pop-service': {
+                    title: 'Dasymetric Population Service Analysis',
+                    description: 'This Python script performs a Dasymetric Population Service Analysis, a geospatial workflow designed to calculate exactly how many people have access to specific services based on their proximity and the presence of built-up areas. Instead of assuming population is spread evenly across a whole barangay, the code uses built-up area data to distribute population only where people actually live, leading to much higher accuracy. It uses boundaries and barangay population data from the Philippine Statistics Authority (PSA).',
+                    tags: ['Python', 'pandas', 'numpy', 'GeoPandas'],
+                    mapImage: 'assets/img/portfolio/osm_pop_service.png',
+                    githubUrl: 'https://github.com/padillatheodore/dasymetric-population-service-analysis' // Replace with actual URL
+                },
                 'coming-soon': {
                     title: 'Coming Soon',
                     description: 'An exciting new project is in development. Stay tuned for updates!',
