@@ -11968,7 +11968,7 @@ body {
 
 /* Ensure avatar is visible */
 .masthead-avatar {
-    width: 12rem !important;
+    width: 14rem !important;
     height: auto !important;
     margin-bottom: 1rem !important;
     display: block !important;
